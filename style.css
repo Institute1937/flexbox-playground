@@ -13,7 +13,7 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
   text-align: center;
   padding:10px;
   margin:10px;
-  /*height:170px;*/
+  height:170px;
       font-size: 165%;
     line-height: 1.29;
 }
@@ -30,6 +30,8 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 .box9a { background:#2ecc71;}
 .box10 { background:#16a085;}
 .box10a { background: yellow}
+.map-container {background:#3C397D}
+.chart-container {background: #FF7980}
 
 
 /* We start writing out flexbox here. The above is just page setup */
@@ -47,26 +49,48 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
     background:powderblue
 }
 
-.box{width:25%}
+/*.box{width:25%}*/
 
 .box1 {
   /*flex:10 5 400px;*/
-  flex-basis:200px
+  flex-basis:200px;
+  flex:1;
+  order:1
 }
+
+
 
 .box2 {
   /*flex:1 1 400pxpx;*/
-    flex-basis:200px
+    flex-basis:200px;
+    flex:1;
+    order:2;
 }
 
 .box3, .box9 {
   /*flex:10 5 400pxpx;*/
-    flex-basis:200px
+    flex-basis:200px;
+    flex:1
 }
 
+.box3 {
+  order:3
+}
 .box4, .box8, .box10 {
   /*flex:1 1 400pxpx;*/
-    flex-basis:420px
+    flex-basis:420px;
+    flex:2
+}
+
+
+.box4{
+  order:4
+}
+
+.box12{
+  order:3;
+  background:yellow;
+  flex:1
 }
 
 .box5 {
@@ -76,6 +100,7 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
     height: 340px;
         font-size: 165%;
     line-height: 1.29;
+    order:5
 }
 
 .box6and7{
@@ -87,6 +112,7 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
     height:360px;
     margin-top:0px;
     justify-content: space-between;
+    order:6
 
   
 }
@@ -98,7 +124,8 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
     display: flex;
     flex-direction: column;
     height:540px;
-    margin-top:0px
+    margin-top:0px;
+    order:10
   
 }
 
@@ -111,7 +138,8 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
     padding-top:0px;
     padding-bottom:0px;
      padding-left:0px;
-    padding-right:0px
+    padding-right:0px;
+    order:9
 }
 
 .box10{
@@ -149,6 +177,40 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
   
 }
 
+.teams, .regions{
+  font-size:12px;
+ flex:1
+}
+
+.teams span, .regions span{
+  flex: 1;
+  list-style:none
+}
+
+.map-container {
+  flex: 1 1 50%
+}
+
+.chart-container {
+  flex: 1 1 40%
+}
+
+   .box1, .box2, .box3 {
+    flex: 1 1 12%
+  } 
+
+  .box4{
+    flex: 1 1 32%
+  }
+
+   .box5{
+    flex: 1 1 58%
+  }
+
+     .box6and7{
+    flex: 1 1 38%
+  }
+
 .box7half{
   background:pink;
   height:170px;
@@ -157,7 +219,8 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 }
 
 .box8 {
-  height:520px
+  height:520px;
+  order:8
 }
 
 .hh{
@@ -190,13 +253,31 @@ html, body {
     min-height: 100%;
 }
 
-.flex-center {
+.flex-column-center {
   display: flex;
   flex-direction: column;
   justify-content: center;
   resize: vertical;
-  overflow: auto;
+  /*overflow: auto;*/
 }
+
+.flex-row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  resize: vertical;
+  /*overflow: auto;*/
+}
+
+.flex-row-flex-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  resize: vertical;
+  /*overflow: auto;*/
+}
+
+
 .flex-center p {
   margin: 0;
 }
@@ -212,4 +293,106 @@ html, body {
 
 .right{
   margin-right:0px 
+}
+
+.box12, .box12a {
+  display:none
+}
+
+.lastfellow {
+  display:none
+}
+@media all and (max-width:1000px) {
+.box8{
+  flex: 1 1 100%
+}
+
+.lastfellow {
+  order:25;
+  background:cornflowerblue;
+  flex: 1 1 32%;
+  height:520px;
+  display:block
+}
+}
+@media all and (max-width:920px) {
+  
+  
+
+   .box1, .box2, .box3{
+    flex: 1 1 25%
+  }  
+
+
+  .box4, {
+    flex: 1 1 32%
+  }
+
+   .box5{
+    flex: 1 1 32%
+  }
+   .box8{
+    flex: 1 1 50%
+  }
+
+.box12a{
+  order:5;
+  background:pink;
+   flex: 1 1 32%;
+  display:block
+}
+
+.hide {
+  visibility:hidden
+}
+
+
+
+.right {display:none}
+}
+
+@media all and (max-width:712px) {
+
+.box6and7b{
+   flex: 1 1 62%
+}
+
+
+
+
+}
+
+@media all and (max-width:500px) {
+      .box1, .box2 {
+    flex: 1 1 40%
+  }  
+
+  .chart-container {
+  flex: 1 1 100%
+}
+
+.box12 {display:block}
+  .box3, .box12 {
+    flex: 1 1 40%
+  }
+
+  .box4, .box5 {
+    flex:1 1 100%
+  }
+
+  .box12a {
+  display:block;
+  order:6;
+   flex:1 1 100%
+}
+
+.box8{
+  flex: 1 1 100%
+}
+
+.left, .right {
+  display:none
+}
+
+
 }
